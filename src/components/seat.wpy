@@ -1,0 +1,50 @@
+<style lang="less">
+.seat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.seat-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #444;
+  color: #eee;
+  border-radius: 2px;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.seat-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 15rpx;
+}
+</style>
+<template>
+  <view class="seat" @tap="handleViewTap">
+    <view class="seat-number">{{ num }}</view>
+    <image class="seat-avatar" src="{{ avatarUrl }}" background-size="cover"/>
+  </view>
+
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class Panel extends wepy.component {
+  props = {
+    avatarUrl: {
+      type: String,
+      default: ''
+    },
+    num: {
+      type: Number
+    }
+  }
+}
+</script>
